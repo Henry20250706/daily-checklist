@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (greetingElement) {
         const hour = new Date().getHours();
         if (hour < 12) {
-            greetingElement.innerText = "🌅 Good Morning!";
+            greetingElement.innerText = "Good Morning!";
         } else if (hour < 18) {
-            greetingElement.innerText = "☀️ Good Afternoon!";
+            greetingElement.innerText = "Good Afternoon!";
         } else {
-            greetingElement.innerText = "🌙 Good Evening!";
+            greetingElement.innerText = "Good Evening!";
         }
     }
 

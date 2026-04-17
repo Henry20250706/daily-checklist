@@ -1,48 +1,64 @@
-// Wait for the browser to finish loading the HTML
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. DYNAMIC GREETING (For index.html) ---
+    // --- 1. NAME SETTING & GREETING ---
     const greetingElement = document.getElementById('greeting');
+    
     if (greetingElement) {
-        const hour = new Date().getHours();
-        if (hour < 12) {
-            greetingElement.innerText = "Good Morning!";
-        } else if (hour < 18) {
-            greetingElement.innerText = "Good Afternoon!";
-        } else {
-            greetingElement.innerText = "Good Evening!";
+        // Check if we already have a name saved
+        let userName = localStorage.getItem('flowUserName');
+
+        // If no name is saved, ask for it
+        if (!userName) {
+            userName = prompt("Welcome! What is your name?");
+            if (userName) {
+                localStorage.setItem('flowUserName', userName);
+            } else {
+                userName = "Friend"; // Fallback if they hit cancel
+            }
         }
+
+        const hour = new Date().getHours();
+        let timeGreeting = "";
+
+        if (hour < 12) timeGreeting = "Good Morning";
+        else if (hour < 18) timeGreeting = "Good Afternoon";
+        else timeGreeting = "Good Evening";
+
+        // Display the greeting with the name
+        greetingElement.innerText = `${timeGreeting}, ${userName}!`;
     }
 
     // --- 2. CHECKLIST INTERACTIVITY ---
-    // This finds every checkbox on the page
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
-            // Find the parent label (the .task-item)
             const parentLabel = this.closest('.task-item');
-            
             if (this.checked) {
-                // Add the 'completed' class from our CSS
                 parentLabel.classList.add('completed');
             } else {
-                // Remove it if unchecked
                 parentLabel.classList.remove('completed');
             }
         });
     });
 });
 
-// --- 3. REFLECTION SAVER (For reflection.html) ---
-// This function is called by the 'onclick' attribute in your HTML button
+// --- 3. REFLECTION SAVER ---
 function saveReflection() {
     const textArea = document.getElementById('daily-win');
+    const userName = localStorage.getItem('flowUserName') || "Friend";
     
     if (textArea && textArea.value.trim() !== "") {
-        alert("Great job! Your reflection has been saved. ✨");
-        textArea.value = ""; // Clear the box after saving
+        alert(`Great job, ${userName}! Your reflection has been saved. ✨`);
+        textArea.value = ""; 
     } else {
         alert("Please write at least one win before completing the day!");
     }
+}
+
+// --- OPTIONAL: RESET NAME ---
+// If you want to allow them to change their name, you can call this function
+function resetName() {
+    localStorage.removeItem('flowUserName');
+    location.reload(); // Refresh the page to trigger the prompt again
 }

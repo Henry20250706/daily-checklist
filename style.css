@@ -1,1 +1,87 @@
+/* 1. Global Variables & Configuration */
+:root {
+    --primary-color: #4a90e2;    
+    --morning-color: #f39c12;   /* Orange */
+    --work-color: #27ae60;      /* Green */
+    --reflection-color: #8e44ad; /* Purple */
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
 
+/* 2. Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* 3. Navigation Bar */
+nav {
+    background: var(--white);
+    padding: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* 4. Page Layout Containers */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.checklist-container {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+h1 {
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+/* 5. Checklist Item Styling */
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fdfdfd;
+    border: 1px solid #edf2f7;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.task-item:hover {
+    transform: translateX(5px);

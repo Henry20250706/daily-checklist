@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Flow | Morning Routine</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="morning-page">
 
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="morning.html" class="active">Morning</a>
+        <a href="work.html">Work</a>
+        <a href="reflection.html">Reflection</a>
+    </nav>
+
+    <main class="checklist-container">
+        <header>
+            <h1>Morning Routine</h1>
+            <p>Win the morning, win the day.</p>
+        </header>
+
+        <section class="checklist">
+            <label class="task-item">
+                <input type="checkbox">
+                <span>Drink 16oz of Water</span>
+            </label>
+
+            <label class="task-item">
+                <input type="checkbox">
+                <span>Make the Bed</span>
+            </label>
+
+            <label class="task-item">
+                <input type="checkbox">
+                <span>10 Minute Meditation</span>
+            </label>
+
+            <label class="task-item">
+                <input type="checkbox">
+                <span>Healthy Breakfast</span>
+            </label>
+
+            <label class="task-item">
+                <input type="checkbox">
+                <span>Review Daily Goals</span>
+            </label>
+        </section>
+
+        <footer style="margin-top: 20px; text-align: center;">
+            <button onclick="location.href='work.html'" class="btn-next">Ready for Work? 💻</button>
+        </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
